@@ -1,4 +1,5 @@
 /***************************************************
+  Modified from
   Adafruit MQTT Library ESP8266 Example
   Must use ESP8266 Arduino from:
     https://github.com/esp8266/Arduino
@@ -40,11 +41,12 @@ Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO
 
 /****************************** Feeds ***************************************/
 
-// Setup a feed called 'photocell' for publishing.
+// Setup a feed called 'heartbeat' for publishing.
 // Notice MQTT paths for AIO follow the form: <username>/feeds/<feedname>
 //Adafruit_MQTT_Publish photocell = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/photocell");
+Adafruit_MQTT_Publish hbFeed = Adafruit_MQTT_Publish(&mqtt, "heartbeat");
 
-// Setup a feed called 'onoff' for subscribing to changes.
+// Setup a feed called 'ledStatus' for subscribing to changes.
 Adafruit_MQTT_Subscribe onoffled = Adafruit_MQTT_Subscribe(&mqtt, "ledStatus");
 
 /*************************** Sketch Code ************************************/
@@ -101,13 +103,14 @@ void setup() {
   mqtt.subscribe(&onoffled);
 }
 
-uint32_t x=0;
-
 void loop() {
   // Ensure the connection to the MQTT server is alive (this will make the first
   // connection and automatically reconnect when disconnected).  See the MQTT_connect
   // function definition further below.
   MQTT_connect();
+
+  // HeartBeat the client(s) to let them know unit is alive
+  hbFeed.publish("IOT-Device1");
 
   // this is our 'wait for incoming subscription packets and callback em' busy subloop
   // try to spend your time here:

@@ -2,18 +2,19 @@
 # pip install paho-mqtt
 
 import paho.mqtt.publish as publish
-import time
+from time import sleep
 
 host = "iot-raspi.local"
-x = 0
+topic = "ledStatus"
 
+x = 0
 while True:
     print("Sending %s ..." % x)
 
     publish.single(
-        topic="ledStatus", 
+        topic=topic, 
         payload="%s" % x, 
         hostname=host)
 
     x = int(not x)
-    time.sleep(1)
+    sleep(1)
