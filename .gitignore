@@ -34,6 +34,7 @@
 # JAF Aditions
 Secrets.h
 secret.*
+config-ha/
 
 .vscode
 
