@@ -7,7 +7,7 @@ https://www.home-assistant.io
 https://www.home-assistant.io/docs/installation/
 https://www.home-assistant.io/components/
 
-Add Speedtest to sensor config! Remember manual trigger and to rtigger it!
+Add Speedtest to sensor config! Remember manual trigger and to trigger it!
 
 # GitHub
 https://github.com/jafossum/Home-AssistantConfig
