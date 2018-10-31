@@ -33,11 +33,11 @@ $terminal_cmd ./start_mosquitto_pub.sh &
 
 echo "####"
 echo "type the following to make the Subscriber ready to receive"
-echo " $ /usr/bin/mosquitto_sub -h mosquitto-host -i testSub -t debug"
+echo " $ mosquitto_sub -h mosquitto-host -i testSub -t debug"
 
 echo ""
 echo "type the following to make the Publisher send"
-echo " $ /usr/bin/mosquitto_pub -h mosquitto-host -i testPublish -t debug -m 'Hello World'"
+echo " $ mosquitto_pub -h mosquitto-host -i testPublish -t debug -m 'Hello World'"
 echo "####"
 echo ""
 
