@@ -5,4 +5,6 @@ https://build.particle.io/build/new
 # HomeAssistant
 https://www.home-assistant.io
 https://www.home-assistant.io/docs/installation/
+https://www.home-assistant.io/components/
 
+Add Speedtest to sensor config! Remember manual trigger and to rtigger it!
