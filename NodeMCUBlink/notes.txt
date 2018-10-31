@@ -1,0 +1,8 @@
+# Particle
+https://console.particle.io/devices
+https://build.particle.io/build/new
+
+# HomeAssistant
+https://www.home-assistant.io
+https://www.home-assistant.io/docs/installation/
+

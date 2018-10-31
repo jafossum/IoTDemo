@@ -42,8 +42,6 @@ Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO
 /****************************** Feeds ***************************************/
 
 // Setup a feed called 'heartbeat' for publishing.
-// Notice MQTT paths for AIO follow the form: <username>/feeds/<feedname>
-//Adafruit_MQTT_Publish photocell = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/photocell");
 Adafruit_MQTT_Publish hbFeed = Adafruit_MQTT_Publish(&mqtt, "heartbeat");
 
 // Setup a feed called 'ledStatus' for subscribing to changes.
@@ -51,8 +49,6 @@ Adafruit_MQTT_Subscribe onoffled = Adafruit_MQTT_Subscribe(&mqtt, "ledStatus");
 
 /*************************** Sketch Code ************************************/
 
-// Bug workaround for Arduino 1.6.6, it seems to need a function declaration
-// for some reason (only affects ESP8266, likely an arduino-builder bug).
 void MQTT_connect();
 
 #define LED D0 // Pin with LED on NodeMCU
@@ -65,7 +61,7 @@ void ledStatusCallback(char* payload, uint16_t length) {
    char receivedChar = (char)payload[i];
    Serial.println(receivedChar);
    if (receivedChar == '0')
-     // ESP8266 Huzzah outputs are "reversed"
+     // ESP8266 outputs are "reversed"
      digitalWrite(LED, HIGH);
    if (receivedChar == '1')
      digitalWrite(LED, LOW);
