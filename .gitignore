@@ -35,6 +35,7 @@
 Secrets.h
 secret.*
 config-ha/
+HomeAssistant/images/
 
 .vscode
 
